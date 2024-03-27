@@ -42,4 +42,4 @@ public class HW6 {
         System.out.println(minCosttAnimal);
         }
     }
-}
+
