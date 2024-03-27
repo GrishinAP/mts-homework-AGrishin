@@ -16,31 +16,32 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
         LocalDate bd = LocalDate.parse("2000-01-01");
         AbstractAnimal animal = null;
         SearchServiceImpl ss = new SearchServiceImpl();
-        RandValues rv = new RandValues();
+        RandValues<String> rv = new RandValues();
+        RandValues<Double> rvd = new RandValues();
         String animalChar;
         String animalBreed;
         Map<String, List<Animal>> animalsMap = new HashMap();
         ArrayList<Animal> tmp;
         do {
-            animalChar = (String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCharacters);
+            animalChar = (String) rv.listItem(new ArrayList(AnimalsRepositoryImpl.animalCharacters));
             if (animalChar.equals("Predator")) {
-                animalBreed = (String) rv.listItem((ArrayList) AnimalsRepositoryImpl.predatorAnimals);
+                animalBreed = rv.listItem( AnimalsRepositoryImpl.predatorAnimals);
                 switch (animalBreed) {
                     case ("Lion"):
-                        animal = new Lion((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Lion( rv.listItem( AnimalsRepositoryImpl.animalNames), rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                     case ("Wolf"):
-                        animal = new Wolf((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Wolf( rv.listItem( AnimalsRepositoryImpl.animalNames),  rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                 }
             } else {
-                animalBreed = (String) rv.listItem((ArrayList) AnimalsRepositoryImpl.patAnimals);
+                animalBreed =  rv.listItem( AnimalsRepositoryImpl.patAnimals);
                 switch (animalBreed) {
                     case ("Dog"):
-                        animal = new Dog((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Dog( rv.listItem( AnimalsRepositoryImpl.animalNames),  rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                     case ("Cat"):
-                        animal = new Cat((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Cat( rv.listItem( AnimalsRepositoryImpl.animalNames),  rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                 }
             }
@@ -63,31 +64,32 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
         LocalDate bd = LocalDate.parse("2000-01-01");
         AbstractAnimal animal = null;
         SearchServiceImpl ss = new SearchServiceImpl();
-        RandValues rv = new RandValues();
+        RandValues<String> rv = new RandValues();
+        RandValues<Double> rvd = new RandValues();
         String animalChar;
         String animalBreed;
         Map<String, List<Animal>> animalsMap = new HashMap();
         ArrayList<Animal> tmp = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            animalChar = (String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCharacters);
+            animalChar = rv.listItem(AnimalsRepositoryImpl.animalCharacters);
             if (animalChar.equals("Predator")) {
-                animalBreed = (String) rv.listItem((ArrayList) AnimalsRepositoryImpl.predatorAnimals);
+                animalBreed = rv.listItem(AnimalsRepositoryImpl.predatorAnimals);
                 switch (animalBreed) {
                     case ("Lion"):
-                        animal = new Lion((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Lion( rv.listItem(AnimalsRepositoryImpl.animalNames), rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                     case ("Wolf"):
-                        animal = new Wolf((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Wolf( rv.listItem(AnimalsRepositoryImpl.animalNames),  rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                 }
             } else {
-                animalBreed = (String) rv.listItem((ArrayList) AnimalsRepositoryImpl.patAnimals);
+                animalBreed = rv.listItem(AnimalsRepositoryImpl.patAnimals);
                 switch (animalBreed) {
                     case ("Dog"):
-                        animal = new Dog((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Dog( rv.listItem( AnimalsRepositoryImpl.animalNames), (Double) rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                     case ("Cat"):
-                        animal = new Cat((String) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalNames), (Double) rv.listItem((ArrayList) AnimalsRepositoryImpl.animalCosts), bd);
+                        animal = new Cat( rv.listItem( AnimalsRepositoryImpl.animalNames),  rvd.listItem( AnimalsRepositoryImpl.animalCosts), bd);
                         break;
                 }
             }

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 
 
 class HW5Test {
@@ -106,7 +107,7 @@ class HW5Test {
     @Test
     void testFindDuplicate() throws invalidAnimalBirthDateException {
         AnimalRepository ar=new AnimalsRepositoryImpl();
-        HashMap<String, Integer> res = ar.findDuplicate(animalArray);
+        HashMap<String, List<Animal>> res = ar.findDuplicate(animalArray);
         System.out.println(res.get("Wolf"));
         System.out.println(res.get("Puma"));
         Assertions.assertEquals(2, res.get("Wolf"));
